@@ -368,9 +368,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <!--<version>1.4</version>-->
-                <version>3.2.1</version>
-
+                <version>1.4</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -378,18 +376,14 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <createSourcesJar>true</createSourcesJar>
-                            <promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+                            <createSourcesJar>false</createSourcesJar>
+                            <promoteTransitiveDependencies>false</promoteTransitiveDependencies>
                             <artifactSet>
                                 <includes>
                                     <include>com.alibaba:hessian-lite</include>
                                     <include>com.alibaba:dubbo-common</include>
                                     <include>com.alibaba:dubbo-remoting-api</include>
                                     <include>com.alibaba:dubbo-remoting-netty</include>
-
-
-
-
                                     <include>com.alibaba:dubbo-remoting-netty4</include>
                                     <include>com.alibaba:dubbo-remoting-mina</include>
                                     <include>com.alibaba:dubbo-remoting-grizzly</include>
@@ -431,107 +425,81 @@
                                     <include>com.alibaba:dubbo-serialization-kryo</include>
                                     <include>com.alibaba:dubbo-serialization-jdk</include>
                                     <include>com.alibaba:dubbo-bootstrap</include>
+
+                                    <include>org.apache.commons:commons-lang3</include>
+                                    <include>org.jboss.resteasy:*</include>
+                                    <include>io.netty:netty-all</include>
+                                    <include>org.apache.thrift:libthrift</include>
+                                    <include>org.apache.cxf:*</include>
+                                    <include>org.javassist:javassist</include>
+                                    <include>redis.clients:jedis</include>
+                                    <include>com.esotericsoftware:kryo</include>
+                                    <include>de.javakaffee:kryo-serializers</include>
+                                    <include>org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.0_spec</include>
+                                    <include>org.jboss.spec.javax.annotation:jboss-jaxrs-api_2.0_spec</include>
+                                    <include>com.alibaba:fastjson</include>
+                                    <include>com.esotericsoftware:reflectasm</include>
+                                    <include>org.ow2.asm:asm</include>
+                                    <include>com.esotericsoftware:minlog</include>
+                                    <include>de.ruedigermoeller:fst</include>
+                                    <include>com.fasterxml.jackson.core:jackson-core</include>
+                                    <include>com.cedarsoftware:java-util</include>
+                                    <include>com.cedarsoftware:json-io</include>
+                                    <include>javax.cache:cache-api</include>
+                                    <include>org.apache.mina:mina-core</include>
+                                    <!--<include>org.glassfish.grizzly:grizzly-core</include>
+                                    <include>org.glassfish.grizzly:grizzly-framework</include>-->
+                                    <include>org.glassfish.gmbal:gmbal-api-only</include>
+                                    <include>org.glassfish.external:management-api</include>
+                                    <include>org.glassfish.grizzly:grizzly-portunif</include>
+                                    <include>org.glassfish.grizzly:grizzly-rcm</include>
+                                    <include>org.mortbay.jetty</include>
+                                    <include>org.mortbay.jetty</include>
+                                    <include>org.apache.tomcat.embed</include>
+                                    <include>org.apache.tomcat:tomcat-annotations-api</include>
+                                    <include>com.caucho:hessian</include>
+                                    <include>org.apache.httpcomponents:httpclient</include>
+                                    <include>org.apache.httpcomponents:httpcore</include>
+                                    <include>commons-codec:commons-codec</include>
+                                    <include>javax.xml.bind:jaxb-api</include>
+                                    <include>com.sun.xml.bind:jaxb-impl</include>
+                                    <include>com.sun.xml.fastinfoset:FastInfoset</include>
+                                    <include>javax.xml.bind</include>
+                                    <include>com.sun.xml.bind:jaxb-core</include>
+                                    <!--<include>com.sun.istack:istack-commons-runtime</include>-->
+                                    <!--<include>javax.activation:javax.activation-api</include>-->
+                                    <!--<include>com.sun.activation:javax.activation</include>-->
+                                    <include>org.codehaus.woodstox:woodstox-core-asl</include>
+                                    <include>org.codehaus.woodstox:stax2-api</include>
+                                    <include>org.apache.ws.xmlschema:xmlschema-core</include>
+                                    <include>wsdl4j:wsdl4j</include>
+                                    <include>commons-lang:commons-lang</include>
+                                    <include>com.googlecode.xmemcached:xmemcached</include>
+                                    <include>org.apache.commons:commons-pool2</include>
+                                    <!--<include>javax.activation:activation</include>-->
+                                    <include>commons-io:commons-io</include>
+                                    <include>net.jcip:jcip-annotations</include>
+                                    <include>org.codehaus.jackson:jackson-core-asl</include>
+                                    <include>org.codehaus.jackson:jackson-mapper-asl</include>
+                                    <include>org.codehaus.jackson:jackson-jaxrs</include>
+                                    <include>org.codehaus.jackson:jackson-xc</include>
+                                    <include>org.apache.zookeeper:zookeeper</include>
+                                    <include>jline:jline</include>
+                                    <include>com.101tec:zkclient</include>
+                                    <include>org.apache.curator:curator-framework</include>
+                                    <include>org.apache.curator:curator-client</include>
+                                    <include>com.google.guava:guava</include>
+                                    <include>ch.qos.logback:logback-classic</include>
+                                    <include>ch.qos.logback:logback-core</include>
+                                    <include>org.jboss.netty:netty</include>
+                                    <include>org.objenesis:objenesis</include>
                                 </includes>
                             </artifactSet>
-
-
-                            <relocations>
-
+                            <!--<relocations>
                                 <relocation>
-                                    <pattern>org.jboss.netty</pattern>
-                                    <shadedPattern>shade.org.jboss.netty</shadedPattern>
+
                                 </relocation>
-                                <relocation>
-                                    <pattern>org.apache.mina</pattern>
-                                    <shadedPattern>shade.org.apache.mina</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.glassfish</pattern>
-                                    <shadedPattern>shade.org.glassfish</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.apache.curator</pattern>
-                                    <shadedPattern>shade.org.apache.curator</shadedPattern>
-                                </relocation>
-
-                                <relocation>
-                                    <pattern>org.apache.zookeeper</pattern>
-                                    <shadedPattern>shade.org.apache.zookeeper</shadedPattern>
-                                </relocation>
-
-                                <relocation>
-                                    <pattern>org.I0Itec</pattern>
-                                    <shadedPattern>shade.org.I0Itec</shadedPattern>
-                                </relocation>
-
-                                <relocation>
-                                    <pattern>com.caucho.hessian</pattern>
-                                    <shadedPattern>shade.com.caucho.hessian</shadedPattern>
-                                </relocation>
-
-                                <relocation>
-                                    <pattern>javax.servlet</pattern>
-                                    <shadedPattern>shade.javax.servlet</shadedPattern>
-                                </relocation>
-
-                                <relocation>
-                                    <pattern>org.apache.http</pattern>
-                                    <shadedPattern>shade.org.apache.http</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>org.aopalliance</pattern>
-                                    <shadedPattern>shade.org.aopalliance</shadedPattern>
-                                </relocation>
-                                <relocation>
-                                    <pattern>net.rubyeye</pattern>
-                                    <shadedPattern>shade.net.rubyeye</shadedPattern>
-                                </relocation>
-                                org.apache.commons
-
-                                redis
-
-                                javax
-
-                                org.jboss.resteasy
-
-                                io.netty
-
-                                javax.xml
-
-                                javax.validation
-
-                                org.apache.thrift
-
-                                org.apache.cxf
-
-                                javassist
-
-                                org.apache.catalina
-
-                                org.mortbay
-
-                                redis.clients
-
-                                org.slf4j
-
-                                org.apache.log4j
-
-                                ch.qos
-
-                                javax.sql
-
-                                com.esotericsoftware
-
-                                de.javakaffee
-
-                                org.w3c
-
-
-                                org.nustaq
-
-                            </relocations>
-
-
+                            </relocations>-->
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                                     <resource>META-INF/dubbo/internal/com.alibaba.dubbo.common.compiler.Compiler
